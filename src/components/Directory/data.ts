@@ -1,21 +1,25 @@
-export const data = [
+import { IMenuItem } from "../../types";
+export const data: IMenuItem[] = [
   {
     title: "hats",
     imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     id: 1,
-    linkUrl: "shop/hats"
+    linkUrl: "shop/hats",
+    size: "small"
   },
   {
     title: "jackets",
     imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
     id: 2,
-    linkUrl: "shop/jackets"
+    linkUrl: "shop/jackets",
+    size: "small"
   },
   {
     title: "sneakers",
     imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
     id: 3,
-    linkUrl: "shop/sneakers"
+    linkUrl: "shop/sneakers",
+    size: "small"
   },
   {
     title: "womens",
