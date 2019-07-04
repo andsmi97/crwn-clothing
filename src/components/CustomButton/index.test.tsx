@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import App from "./App";
+import CustomButton from "./index";
 
-describe("<App />", () => {
+describe("<CustomButton />", () => {
   it("matches snapshot", () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<CustomButton />);
     expect(wrapper).toMatchSnapshot();
   });
 });

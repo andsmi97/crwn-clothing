@@ -1,18 +1,32 @@
 {
   "name": "crwn-clothing",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.10.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.10",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.4",
+    "chai": "^4.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "firebase": "^6.2.4",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "sinon": "^7.3.2",
     "typescript": "^3.5.2"
   },
   "scripts": {
