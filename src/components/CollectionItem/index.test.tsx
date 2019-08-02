@@ -5,9 +5,13 @@ import CollectionItem from "../CollectionItem";
 
 describe("<CollectionItem />", () => {
   it("matches snapshot", () => {
-    const wrapper = shallow(
-      <CollectionItem id={5} name="name" price={15} imageUrl="image" />
-    );
+    const item = {
+      id: 5,
+      name: "name",
+      price: 15,
+      imageUrl: "image"
+    };
+    const wrapper = shallow(<CollectionItem item={item} />);
     expect(wrapper).toMatchSnapshot();
   });
   // it("renders an `.collection-item`", () => {
