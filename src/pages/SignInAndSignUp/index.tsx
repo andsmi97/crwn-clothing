@@ -4,7 +4,7 @@ import "./styles.scss";
 import SignIn from "../../components/SignIn";
 import SignUp from "../../components/SignUp";
 
-export default (): JSX.Element => {
+const SignInAndSignUp = (): JSX.Element => {
   return (
     <div className="sign-in-and-sign-up">
       <SignIn />
@@ -12,3 +12,5 @@ export default (): JSX.Element => {
     </div>
   );
 };
+
+export default SignInAndSignUp;

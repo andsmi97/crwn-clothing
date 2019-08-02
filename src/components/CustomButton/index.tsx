@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./styles.scss";
-import { ICustomButton } from "../../types";
 
 export default ({
   children,

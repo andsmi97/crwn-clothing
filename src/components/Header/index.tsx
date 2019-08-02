@@ -3,13 +3,6 @@ import "./styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { createStructuredSelector } from "reselect";
-import {
-  IHeader,
-  // IUserState,
-  // IReduxStore,
-  IUserActions,
-  IReduxDispatch
-} from "../../types";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../CartIcon";
@@ -22,12 +15,7 @@ const mapStateToProps = createStructuredSelector({
   hidden: selectCartHidden
 });
 
-const mapDispatchToProps = (dispatch: IReduxDispatch): IUserActions => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(
+export default connect(mapStateToProps)(
   ({ currentUser, hidden }: any): JSX.Element => {
     return (
       <div className="header">

@@ -71,3 +71,13 @@ export interface IReduxStore {
 export interface IUserActions {}
 
 export interface IReduxDispatch {}
+
+export interface ICollectionIdMapInterface {
+  hats: number;
+  sneakers: number;
+  jackets: number;
+  womens: number;
+  mens: number;
+}
+
+export type CollectionIdMapKeys = keyof ICollectionIdMapInterface;

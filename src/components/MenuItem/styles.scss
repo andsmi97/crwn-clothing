@@ -11,6 +11,7 @@
   transition: all 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   // transform: scale(1.05, 1.05);
   &.large {
     height: 380px;

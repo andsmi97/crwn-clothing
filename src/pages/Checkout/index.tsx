@@ -26,7 +26,7 @@ const Checkout = ({ cartItems, total }: any) => (
       </div>
     </div>
     {cartItems.map((cartItem: ICollectionItemWithQuantity) => (
-      <CheckoutItem id={cartItem.id} cartItem={cartItem} />
+      <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
     <div className="total">
       <span>TOTAL: ${total}</span>
