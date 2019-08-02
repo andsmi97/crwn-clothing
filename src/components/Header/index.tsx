@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.scss";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { createStructuredSelector } from "reselect";
 import {
   IHeader,
   // IUserState,
@@ -13,10 +14,14 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import CartIcon from "../CartIcon";
 import CartDropdown from "../CartDropdown";
-const mapStateToProps = ({
-  user: { currentUser },
-  cart: { hidden }
-}: any): any => ({ currentUser, hidden });
+import { selectCurrentUser } from "../../redux/user/selectors";
+import { selectCartHidden } from "../../redux/cart/selectors";
+
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden
+});
+
 const mapDispatchToProps = (dispatch: IReduxDispatch): IUserActions => ({});
 
 export default connect(
