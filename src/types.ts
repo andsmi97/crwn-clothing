@@ -19,6 +19,10 @@ export interface ICollectionItem {
   price: number;
 }
 
+export interface ICollectionItemWithQuantity extends ICollectionItem {
+  quantity: number;
+}
+
 export interface IShopData extends ICollection {
   items: ICollectionItem[];
 }
@@ -41,5 +45,29 @@ export interface ICustomButton {
   isGoogleSignIn?: boolean;
 }
 export interface IHeader {
-  currentUser?: firebase.User | null;
+  currentUser?: IUser | null;
 }
+
+export interface IUser extends firebase.firestore.DocumentData {
+  id?: string;
+}
+
+export interface IUserAction {
+  type: string;
+  payload: IUserActionPayload;
+}
+export interface IUserActionPayload {
+  currentUser?: IUser | null;
+}
+
+export interface IUserState {
+  currentUser?: IUser | null;
+}
+
+export interface IReduxStore {
+  user: IUserState;
+}
+
+export interface IUserActions {}
+
+export interface IReduxDispatch {}

@@ -1,18 +1,36 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-const config = {
-  apiKey: "AIzaSyC2mTNCMzCTs8pH2pmMjy7L3p1GHIHW9EM",
-  authDomain: "crwn-db-6bb46.firebaseapp.com",
-  databaseURL: "https://crwn-db-6bb46.firebaseio.com",
-  projectId: "crwn-db-6bb46",
-  storageBucket: "",
-  messagingSenderId: "610011609716",
-  appId: "1:610011609716:web:2af6cbb3463cefdf"
-};
-
+import { config } from "../config/firebase";
 firebase.initializeApp(config);
+export const createUserProfileDocument = async (
+  userAuth: firebase.User | null,
+  additionalData?: any
+) => {
+  if (!userAuth) {
+    return;
+  }
+  // var token = result.credential.accessToken;
+  // console.log()
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get();
 
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData
+      });
+    } catch (error) {
+      console.log("error creating user", error.message);
+    }
+  }
+  return userRef;
+};
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 

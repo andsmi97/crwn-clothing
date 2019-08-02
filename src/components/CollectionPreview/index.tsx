@@ -10,8 +10,8 @@ export default ({ title, items }: IShopData): JSX.Element => {
       <div className="preview">
         {items
           .filter((item, index) => index < 4)
-          .map(({ id, ...restProps }) => (
-            <CollectionItem key={id} id={id} {...restProps} />
+          .map(item => (
+            <CollectionItem key={item.id} item={item} />
           ))}
       </div>
     </div>

@@ -5,12 +5,16 @@ import { ICustomButton } from "../../types";
 
 export default ({
   children,
+  inverted,
   isGoogleSignIn,
   ...restProps
-}: ICustomButton): JSX.Element => {
+}: any): JSX.Element => {
   return (
     <button
-      className={`${isGoogleSignIn ? "google-sign-in" : ""} custom-button`}
+      className={`
+        ${inverted && "inverted"} 
+        ${isGoogleSignIn && "google-sign-in"} 
+        custom-button`}
       {...restProps}
     >
       {children}
