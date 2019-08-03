@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-
-import "./styles.scss";
 import FormInput from "../FormInput";
 import CustomButton from "../CustomButton";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+import { SignUpContainer } from "./styles";
 
-export default (): JSX.Element => {
+const SignUp = (): JSX.Element => {
   const [displayName, setDisplayName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -34,10 +33,10 @@ export default (): JSX.Element => {
     }
   };
   return (
-    <div className="sign-up">
+    <SignUpContainer>
       <h2>I do not have an account</h2>
       <span>Sign up with your email and password</span>
-      <form className="sign-up-form" onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <FormInput
           name="name"
           type="text"
@@ -70,10 +69,12 @@ export default (): JSX.Element => {
           required
           label="Confirm Password"
         />
-        <div className="buttons">
+        <div>
           <CustomButton type="submit">SIGN UP</CustomButton>
         </div>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
+
+export default SignUp;

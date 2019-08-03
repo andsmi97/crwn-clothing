@@ -1,22 +1,26 @@
 import React from "react";
-
-import "./styles.scss";
 import { ICollectionItemWithQuantity } from "../../types";
+import {
+  CartItemContainer,
+  ImgContainer,
+  ItemDetailsContainer,
+  NameContainer
+} from "./styles";
 
 const CartItem = ({
   item: { imageUrl, price, name, quantity }
 }: {
   item: ICollectionItemWithQuantity;
 }): JSX.Element => (
-  <div className="cart-item">
-    <img src={imageUrl} alt="item" />
-    <div className="item-details">
-      <span className="name">{name}</span>
-      <span className="price">
+  <CartItemContainer>
+    <ImgContainer src={imageUrl} alt="item" />
+    <ItemDetailsContainer>
+      <NameContainer>{name}</NameContainer>
+      <span>
         {quantity} x {price}$
       </span>
-    </div>
-  </div>
+    </ItemDetailsContainer>
+  </CartItemContainer>
 );
 
 export default CartItem;

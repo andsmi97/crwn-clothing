@@ -1,26 +1,22 @@
 import React from "react";
-
-import "./styles.scss";
+import { GroupContainer, FormInputContainer, FormInputLabel } from "./styles";
 import { IFormInput } from "../../types";
 
-export default ({ onChange, label, ...restProps }: IFormInput): JSX.Element => {
+const FormInput = ({ onChange, label, ...props }: IFormInput): JSX.Element => {
   return (
-    <div className="group">
-      <input
-        className="form-input"
+    <GroupContainer>
+      <FormInputContainer
         onChange={event => onChange && onChange(event.target.value)}
-        {...restProps}
+        {...props}
       />
-      {label ? (
-        <label
-          htmlFor={label}
-          className={`${
-            restProps.value ? (restProps.value.length ? "shrink" : "") : ""
-          } form-input-label`}
+      {label && (
+        <FormInputLabel
+          className={`${props.value && (props.value.length && "shrink")}`}
         >
           {label}
-        </label>
-      ) : null}
-    </div>
+        </FormInputLabel>
+      )}
+    </GroupContainer>
   );
 };
+export default FormInput;

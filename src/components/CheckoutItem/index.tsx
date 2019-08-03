@@ -1,51 +1,52 @@
 import React from "react";
 import { connect } from "react-redux";
+import { clearItem, removeItem, addItem } from "../../redux/cart/actions";
 
-import "./styles.scss";
 import {
-  clearItem,
-  removeItem,
-  addItem,
-  clearCart
-} from "../../redux/cart/actions";
+  CheckoutItemContainer,
+  ImageContainer,
+  Img,
+  SpanContainer,
+  QuantityContainer,
+  QuantityArrow,
+  QuantityValue,
+  RemoveButton
+} from "./styles";
+
 import { ICollectionItemWithQuantity } from "../../types";
 
 const CheckoutItem = ({
   cartItem,
   clearItem,
   removeItem,
-  addItem,
-  clearCart
+  addItem
 }: any): JSX.Element => {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
-    <div className="checkout-item">
-      <div className="image-container">
-        <img alt="item" src={imageUrl} />
-      </div>
-      <span className="name">{name}</span>
-      <span className="quantity">
-        <div className="arrow" onClick={() => removeItem(cartItem)}>
+    <CheckoutItemContainer>
+      <ImageContainer>
+        <Img alt="item" src={imageUrl} />
+      </ImageContainer>
+      <SpanContainer>{name}</SpanContainer>
+      <QuantityContainer>
+        <QuantityArrow onClick={() => removeItem(cartItem)}>
           &#10094;
-        </div>
-        <div className="value"> {quantity}</div>
-        <div className="arrow" onClick={() => addItem(cartItem)}>
+        </QuantityArrow>
+        <QuantityValue> {quantity}</QuantityValue>
+        <QuantityArrow onClick={() => addItem(cartItem)}>
           &#10095;
-        </div>
-      </span>
-      <span className="price">{price}</span>
-      <span className="remove-button" onClick={() => clearItem(cartItem)}>
-        &#10005;
-      </span>
-    </div>
+        </QuantityArrow>
+      </QuantityContainer>
+      <SpanContainer>{price}</SpanContainer>
+      <RemoveButton onClick={() => clearItem(cartItem)}>&#10005;</RemoveButton>
+    </CheckoutItemContainer>
   );
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
   clearItem: (item: ICollectionItemWithQuantity) => dispatch(clearItem(item)),
   removeItem: (item: ICollectionItemWithQuantity) => dispatch(removeItem(item)),
-  addItem: (item: ICollectionItemWithQuantity) => dispatch(addItem(item)),
-  clearCart: () => dispatch(clearCart())
+  addItem: (item: ICollectionItemWithQuantity) => dispatch(addItem(item))
 });
 
 export default connect(

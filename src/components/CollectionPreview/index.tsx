@@ -1,19 +1,21 @@
 import React from "react";
-import "./styles.scss";
+import { Title, Preview, CollectionPreviewContainer } from "./styles";
 import { IShopData } from "../../types";
 import CollectionItem from "../CollectionItem";
 
-export default ({ title, items }: IShopData): JSX.Element => {
+const CollectionPreview = ({ title, items }: IShopData): JSX.Element => {
   return (
-    <div className="collection-preview">
-      <h1 className="title">{title}</h1>
-      <div className="preview">
+    <CollectionPreviewContainer>
+      <Title>{title}</Title>
+      <Preview>
         {items
           .filter((item, index) => index < 4)
           .map(item => (
             <CollectionItem key={item.id} item={item} />
           ))}
-      </div>
-    </div>
+      </Preview>
+    </CollectionPreviewContainer>
   );
 };
+
+export default CollectionPreview;

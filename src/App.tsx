@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./App.scss";
+// import "./App.scss";
 import { Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/Shop";
@@ -9,12 +9,6 @@ import SignInAndSignUp from "./pages/SignInAndSignUp";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { selectCurrentUser } from "./redux/user/selectors";
 import { createStructuredSelector } from "reselect";
-// import // IUser
-// // IReduxStore,
-// // IUserState,
-// // IReduxDispatch,
-// // IUserAction
-// "./types";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/actions";
 
